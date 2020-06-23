@@ -8,7 +8,7 @@
         <!-- small box -->
         <div class="small-box bg-dark">
           <div class="inner">
-            <h3>44</h3>
+            <h3>{{ $count }} murid</h3>
   
             <h2>Murid</h2>
           </div>

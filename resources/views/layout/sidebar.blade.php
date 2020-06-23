@@ -15,7 +15,7 @@
           <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">ll</a>
         </div>
       </div>
 
@@ -58,30 +58,12 @@
               <p>Murid</p>
             </a>
           </li>
-
+ 
+          <li class="nav-header">MENU</li>
           <li class="nav-item">
             <a href="/profil" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>Profil</p>
-            </a>
-          </li>
-          
-          <li class="nav-header">EXAMPLES</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
             </a>
           </li>
 

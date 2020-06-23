@@ -18,13 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'frontendController@utama');
 
 // admin
-Route::get('/admin/login', 'Auth\AdminAuthController@getLogin')->name('admin.login');
-Route::post('/admin/login', 'Auth\AdminAuthController@postLogin');
+
 
 // Route::middleware('auth:admin')->group(function () {
 
 // Admin
-Route::get('/admin/dashboard', 'adminController@dashboard');
+Route::get('/admin/dashboard', 'admin\adminController@dashboard');
 
 //murid
 Route::get('/murid', 'admin\muridController@index');
@@ -75,7 +74,14 @@ Route::get('/jadwal/detail/{jadwal}', 'admin\jadwalController@show');
 // });
 
 
+// profil 
+Route::get('/profil', 'murid\profilController@index');
+Route::get('/profil/edit/{id}', 'murid\profilController@edit');
+Route::put('/profil/edit/{id}', 'murid\profilController@update');
+
 
 Auth::routes();
 
+Route::get('/admin/login', 'Auth\AdminAuthController@getLogin')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminAuthController@postLogin');
 Route::get('/home', 'HomeController@index')->name('home');

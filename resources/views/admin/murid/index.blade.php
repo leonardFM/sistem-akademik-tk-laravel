@@ -30,7 +30,7 @@
                     <td>{{ $row->kelas["kelas"] }}</td>
                     <td>{{ $row->ruang["ruang"] }}</td>
                     <td>  
-                        <a href="/murid/detail/{{ $row->id }}" class="btn btn-info btn-sm">Detail</a>
+                        <a href="/profil/edit/{{ $row->id }}" class="btn btn-info btn-sm">Detail</a>
                     </td>
                 </tr>
                 @endforeach
