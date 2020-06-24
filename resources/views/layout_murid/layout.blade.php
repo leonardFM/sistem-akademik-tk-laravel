@@ -1,6 +1,6 @@
-@include('layout.header')
-@include('layout.navbar')
-@include('layout.sidebar')
+@include('layout_murid.header')
+@include('layout_murid.navbar')
+@include('layout_murid.sidebar')
 
 <div class="content-wrapper">
   <div class="content-header">
@@ -18,4 +18,4 @@
   
 </div>
 
-@include('layout.footer')
+@include('layout_murid.footer')

@@ -42,17 +42,6 @@ class kelasController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Kelas  $kelas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kelas $kelas)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Kelas  $kelas

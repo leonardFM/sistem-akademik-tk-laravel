@@ -23,7 +23,8 @@ class profilController extends Controller
         $jenis_kelamin = Jeniskelamin::pluck('jenis_kelamin', 'id');
         $agama = Agama::pluck('agama', 'id');
         $user = Auth::user();
-        return view('murid.profil.index', compact('user', 'agama', 'jenis_kelamin'));
+        $teman_kelas = User::where('ruang_id', $user->ruang_id)->paginate(5);
+        return view('murid.profil.index', compact('user', 'agama', 'teman_kelas', 'jenis_kelamin'));
     }
 
     /**
@@ -59,6 +60,13 @@ class profilController extends Controller
 
         User::where('id', $id)->update($data);
         return redirect('/profil');
+    }
+
+    public function teman_kelas()
+    {
+        $user = Auth::user();
+        $teman_kelas = User::where('ruang_id', $user->ruang_id)->paginate(10);
+        return view('murid.profil.teman_kelas', compact('teman_kelas', 'user'));
     }
 
     /**

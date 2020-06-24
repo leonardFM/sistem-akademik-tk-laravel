@@ -36,10 +36,6 @@
     td {
       font-size: 13px;
     }
-
-    .jumbotron {
-      height: 440px;
-    }
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

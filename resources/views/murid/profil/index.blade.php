@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout_admin.layout')
 @section('content')
 <!-- Main content -->
 <section class="content">
@@ -49,48 +49,49 @@
             <div class="card-body">
               <div class="tab-content">
                 <div class="active tab-pane" id="activity">
-                    <table class="table table-striped table-bordered text-center" style="float: left">
+                    <table class="table table-striped table-bordered">
                         <tr>
-                            <td>Nama</td>
+                            <td><b>Nama</b></td>
                             <td>{{ $user->name }}</td>
                         </tr>
                         <tr>
-                            <td>Nama Orangtua</td>
+                            <td><b>Nama Orangtua</b></td>
                             <td>{{ $user->nama_orangtua }}</td>
                         </tr>
                         <tr>
-                            <td>Email</td>
+                            <td><b>Email</b></td>
                             <td>{{ $user->email }}</td>
                         </tr>
                         <tr>
-                            <td>Kelas</td>
+                            <td><b>Kelas</b></td>
                             <td>{{ $user->kelas["kelas"] }}</td>
                         </tr>
                         <tr>
-                            <td>Ruang</td>
+                            <td><b>Ruang</b></td>
                             <td>{{ $user->ruang["ruang"] }}</td>
                         </tr>
                         <tr>
-                            <td>Alamat</td>
+                            <td><b>Alamat</b></td>
                             <td>{{ $user->alamat }}</td>
                         </tr>
                         <tr>
-                            <td>No Telepon</td>
+                            <td><b>No Telepon</b></td>
                             <td>{{ $user->no_telepon }}</td>
                         </tr>
                         <tr>
-                            <td>Jenis Kelamin</td>
+                            <td><b>Jenis Kelamin</b></td>
                             <td>{{ $user->jenis_kelamin["jenis_kelamin"] }}</td>
                         </tr>
                         <tr>
-                            <td>Agama</td>
+                            <td><b>Agama</b></td>
                             <td>{{ $user->agama["agama"] }}</td>
                         </tr>
                     </table>
+                    
                 </div>
 
                 <div class="tab-pane" id="teman">
-                    <table id="table_id" class="table table-striped table-bordered text-center">
+                    <table  class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th style="width: 20px">No</th>
@@ -99,20 +100,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @php
-                                $no=1;
-                            @endphp --}}
-            
-                            
-                            <tr>
-                                <td>1</td>
-                                <td>teman</td>
-                                <td>
-                                </td>
-                            </tr>
-                            
+                              @php
+                                  $no=1;
+                              @endphp
+                              @foreach ($teman_kelas as $row)
+                                <tr>
+                                  <td>{{ $no++ }}</td>
+                                  <td>{{ $row->name }}</td>
+                                  <td>
+                                    <a href="" class="btn btn-primary btn-sm">view</a>
+                                  </td>
+                                </tr>
+                              @endforeach
+                     
                         </tbody>
                     </table>
+                    <a href="/profil/teman_kelas" class="btn btn-primary btn-sm btn-block">Lihat semua</a>
                 </div>
 
                 <div class="tab-pane" id="settings">
