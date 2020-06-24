@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout_admin.layout')
 @section('content')
 <div class="card col-md-12">
     <div class="card-body">

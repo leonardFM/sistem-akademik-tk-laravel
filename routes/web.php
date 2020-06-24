@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // frontend
 Route::get('/', 'frontendController@utama');
+Route::get('/frontend/login', 'frontendController@login')->name('frontend.login');
 
 // admin
 

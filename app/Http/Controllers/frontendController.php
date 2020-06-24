@@ -10,4 +10,9 @@ class frontendController extends Controller
     {
         return view('frontend.utama');
     }
+
+    public function login()
+    {
+        return view('frontend.login');
+    }
 }

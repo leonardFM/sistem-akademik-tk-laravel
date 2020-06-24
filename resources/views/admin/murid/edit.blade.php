@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout_admin.layout')
 @section('content')
 <div class="card col-md-6">
     <div class="card-body">
@@ -43,15 +43,15 @@
                 <select class="form-control form-control-sm" name="kelas_id">
                     <option>- pilih -</option>
                     @foreach ($kelas as $id => $kelas)
-                        <option value="{{ $murid->kelas_id }}" {{ ($murid->kelas_id == $id) ? 'selected' : '' }} >{{ $kelas }}</option>
+                        <option value="{{ $id }}" {{ $id == $murid->kelas_id ? 'selected' : '' }}>{{ $kelas }}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Ruang</label>
-                <select class="form-control form-control-sm" id="ruang" name="ruang_id">
-                    <option value="{{ $murid->ruang_id }} " >{{$murid->ruang["ruang"]}}</option>
+                <select class="form-control form-control-sm" name="ruang_id">
+                    <option value="{{ $murid->ruang_id }}" >{{ $murid->ruang["ruang"] }}</option>
                 </select>
             </div>
             
@@ -61,10 +61,8 @@
         <script type="text/javascript">
             jQuery(document).ready(function ()
             {
-                
                 jQuery('select[name="kelas_id"]').on('change',function(){
                     var kelasID = jQuery(this).val();
-                    var selectRuang = jQuery(this).val();
                     if(kelasID)
                     {
                         jQuery.ajax({
@@ -80,7 +78,6 @@
                             });
                             }
                         });
-                        $('ruang_id').val(selectRuang)
                     } else {
                         $('select[name="ruang_id"]').empty();
                     }

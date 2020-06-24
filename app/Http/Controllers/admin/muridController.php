@@ -78,8 +78,6 @@ class muridController extends Controller
         return view('admin.murid.edit', compact('kelas', 'jenis_kelamin', 'murid', 'agama'));
     }
 
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -95,8 +93,6 @@ class muridController extends Controller
             'kelas_id' => $request->kelas_id,
             'ruang_id' => $request->ruang_id,
         ];
-        dd($data);
-
         User::where('id', $id)->update($data);
         return redirect('/murid');
     }

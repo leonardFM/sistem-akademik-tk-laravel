@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout_admin.layout')
 @section('content')
 <div class="card">
     <div class="card-body">
@@ -30,7 +30,7 @@
                     <td>{{ $row->kelas["kelas"] }}</td>
                     <td>{{ $row->ruang["ruang"] }}</td>
                     <td>  
-                        <a href="/profil/edit/{{ $row->id }}" class="btn btn-info btn-sm">Detail</a>
+                        <a href="/murid/detail/{{ $row->id }}" class="btn btn-info btn-sm">Detail</a>
                     </td>
                 </tr>
                 @endforeach
