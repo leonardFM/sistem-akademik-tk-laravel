@@ -4,9 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Jadwal;
+use App\Kegiatan;
 use App\Ruang;
 use App\Kelas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class jadwalController extends Controller
 {
@@ -17,7 +19,9 @@ class jadwalController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $jadwal = Jadwal::all();
+        return view('admin.jadwal.index', compact('jadwal', 'user'));
     }
 
     /**
@@ -27,8 +31,11 @@ class jadwalController extends Controller
      */
     public function create()
     {
+        $data = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
+        $user = Auth::user();
         $kelas = Kelas::pluck('kelas', 'id');
-        return view('admin.jadwal.add', compact('kelas'));
+        $kegiatan = Kegiatan::all();
+        return view('admin.jadwal.add', compact('kelas', 'user', 'data', 'kegiatan'));
     }
 
     public function ruang($id)
@@ -45,11 +52,14 @@ class jadwalController extends Controller
      */
     public function store(Request $request)
     {
-        Jadwal::create([
+        $data = Jadwal::create([
             'kelas_id' => $request->kelas_id,
             'ruang_id' => $request->ruang_id,
-            'jadwal' => $request->jadwal
+            'hari' => $request->hari,
         ]);
+
+        $data->kegiatan()->attach($request->kegiatan);
+        return redirect('/jadwal');
     }
 
     /**
@@ -71,7 +81,11 @@ class jadwalController extends Controller
      */
     public function edit(Jadwal $jadwal)
     {
-        //
+        $data = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
+        $user = Auth::user();
+        $kelas = Kelas::pluck('kelas', 'id');
+        $kegiatan = Kegiatan::all();
+        return view('admin.jadwal.edit', compact('jadwal', 'data', 'user', 'kelas', 'kegiatan'));
     }
 
     /**
@@ -83,7 +97,15 @@ class jadwalController extends Controller
      */
     public function update(Request $request, Jadwal $jadwal)
     {
-        //
+        $data = [
+            'kelas_id' => $request->kelas_id,
+            'ruang_id' => $request->ruang_id,
+            'hari' => $request->hari
+        ];
+
+        $jadwal->kegiatan()->sync($request->kegiatan);
+        $jadwal->update($data);
+        return redirect('/jadwal');
     }
 
     /**
@@ -94,6 +116,7 @@ class jadwalController extends Controller
      */
     public function destroy(Jadwal $jadwal)
     {
-        //
+        Jadwal::destroy($jadwal->id);
+        return redirect('/jadwal');
     }
 }

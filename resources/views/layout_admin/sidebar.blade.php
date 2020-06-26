@@ -45,6 +45,16 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="/kegiatan" class="nav-link">
+                  <p> - Kegiatan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/jadwal" class="nav-link">
+                  <p> - Jadwal</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="/ruang" class="nav-link">
                   <p> - Ruang</p>
                 </a>
@@ -59,14 +69,6 @@
             </a>
           </li>
  
-          <li class="nav-header">MENU</li>
-          <li class="nav-item">
-            <a href="/profil" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Profil</p>
-            </a>
-          </li>
-
           <li class="nav-item">
             <a href="/admin/logout" class="nav-link">
               <i class="nav-icon fas fa-user"></i>

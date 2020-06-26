@@ -47,6 +47,14 @@ Route::middleware('auth:admin')->group(function () {
     Route::put('/kelas/edit/{kelas}', 'admin\kelasController@update');
     Route::delete('/kelas/delete/{kelas}', 'admin\kelasController@destroy');
 
+    //kegiatan
+    Route::get('/kegiatan', 'admin\kegiatanController@index');
+    Route::get('/kegiatan/create', 'admin\kegiatanController@create');
+    Route::post('/kegiatan/create', 'admin\kegiatanController@store');
+    Route::get('/kegiatan/edit/{kegiatan}', 'admin\kegiatanController@edit');
+    Route::put('/kegiatan/edit/{kegiatan}', 'admin\kegiatanController@update');
+    Route::delete('/kegiatan/delete/{kegiatan}', 'admin\kegiatanController@destroy');
+
     //Admin-pengumuman
     Route::get('/pengumuman', 'admin\pengumumanController@index');
     Route::get('/pengumuman/create', 'admin\pengumumanController@create');
@@ -77,6 +85,10 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/jadwal/detail/{jadwal}', 'admin\jadwalController@show');
 });
 
+// pengumuman murid
+Route::get('/murid/pengumuman', 'murid\pengumumanController@index');
+Route::get('/murid/pengumuman/detail/{id}', 'murid\pengumumanController@detail');
+
 
 // profil 
 Route::get('/profil', 'murid\profilController@index');
@@ -93,6 +105,8 @@ Route::get('/admin/logout', 'admin\adminController@logout');
 
 
 // murid login
+Route::get('/murid/register', 'Auth\muridLoginController@getRegister');
+Route::post('/murid/register', 'Auth\muridLoginController@register');
 Route::get('/murid/login', 'Auth\muridLoginController@getLogin');
 Route::post('/murid/login', 'Auth\muridLoginController@login');
 Route::get('/murid/logout', 'murid\muridController@logout');

@@ -1,9 +1,13 @@
 @extends('layout_admin.layout')
 @section('content')
-<div class="card col-md-8">
+<div class="card col-md-8 text-center">
     <div class="card-body">
-        <h1>{{ $pengumuman->kelas_id }}</h1>
+        <h3>{{ $pengumuman->kelas->kelas }}</h3>
+        <hr>
+        <h2>{{ $pengumuman->ruang->ruang }}</h2>
+        <hr>
         <h1>{{ $pengumuman->judul }}</h1>
+        <hr>
         <h1>{{ $pengumuman->keterangan }}</h1>
         <hr>
         

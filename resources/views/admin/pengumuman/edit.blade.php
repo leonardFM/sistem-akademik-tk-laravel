@@ -9,10 +9,16 @@
                 <label for="exampleFormControlSelect1">Kelas</label>
                 <select class="form-control" name="kelas_id">
                     <option>- pilih -</option>
-                    @foreach ($kelas as $row)
-                        <option value="{{ $row->id }}">{{ $row->kelas }}</option>
+                    @foreach ($kelas as $id => $kelas)
+                        <option value="{{ $id }}" {{ $id == $pengumuman->kelas_id ? 'selected' : '' }}>{{ $kelas }}</option>
                     @endforeach
                 
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Ruang</label>
+                <select class="form-control" id="ruang" name="ruang_id">
+                    <option value="{{ $pengumuman->id }}">{{ $pengumuman->ruang->ruang }}</option>
                 </select>
             </div>
             <div class="form-group">

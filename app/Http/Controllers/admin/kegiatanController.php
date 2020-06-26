@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Kelas;
-use App\Ruang;
+use App\Kegiatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ruangController extends Controller
+class kegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class ruangController extends Controller
      */
     public function index()
     {
-        $data = Ruang::all();
         $user = Auth::user();
-        return view('admin.ruang.index', compact('data', 'user'));
+        $kegiatan = Kegiatan::all();
+        return view('admin.kegiatan.index', compact('kegiatan', 'user'));
     }
 
     /**
@@ -30,8 +29,7 @@ class ruangController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $kelas = Kelas::all();
-        return view('admin.ruang.add', compact('kelas', 'user'));
+        return view('admin.kegiatan.add', compact('user'));
     }
 
     /**
@@ -42,20 +40,17 @@ class ruangController extends Controller
      */
     public function store(Request $request)
     {
-        Ruang::create([
-            'kelas_id' => $request->kelas_id,
-            'ruang' => $request->ruang
-        ]);
-        return redirect('/ruang');
+        Kegiatan::create(['kegiatan' => $request->kegiatan]);
+        return redirect('/kegiatan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ruang  $ruang
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ruang $ruang)
+    public function show($id)
     {
         //
     }
@@ -63,43 +58,38 @@ class ruangController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ruang  $ruang
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ruang $ruang)
+    public function edit($id)
     {
-        $kelas = Kelas::all();
         $user = Auth::user();
-        return view('admin.ruang.edit', compact('ruang', 'kelas', 'user'));
+        $kegiatan = Kegiatan::findorfail($id);
+        return view('admin.kegiatan.edit', compact('kegiatan', 'user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ruang  $ruang
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ruang $ruang)
+    public function update(Request $request, $id)
     {
-        $data = [
-            'kelas_id' => $request->kelas_id,
-            'ruang' => $request->ruang
-        ];
-
-        Ruang::where('id', $ruang->id)->update($data);
-        return redirect('/ruang');
+        Kegiatan::where('id', $id)->update(['kegiatan' => $request->kegiatan]);
+        return redirect('/kegiatan');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ruang  $ruang
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ruang $ruang)
+    public function destroy($id)
     {
-        Ruang::destroy($ruang->id);
-        return redirect('/ruang');
+        Kegiatan::destroy($id);
+        return redirect('/kegiatan');
     }
 }

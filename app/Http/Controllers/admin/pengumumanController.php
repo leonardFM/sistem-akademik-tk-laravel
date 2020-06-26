@@ -7,6 +7,7 @@ use App\Kelas;
 use App\Ruang;
 use App\Pengumuman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class pengumumanController extends Controller
 {
@@ -23,7 +24,8 @@ class pengumumanController extends Controller
     public function index()
     {
         $data = Pengumuman::all();
-        return view('admin.pengumuman.index', compact('data'));
+        $user = Auth::user();
+        return view('admin.pengumuman.index', compact('data', 'user'));
     }
 
     /**
@@ -34,7 +36,8 @@ class pengumumanController extends Controller
     public function create()
     {
         $kelas = Kelas::pluck('kelas', 'id');
-        return view('admin.pengumuman.add', compact('kelas'));
+        $user = Auth::user();
+        return view('admin.pengumuman.add', compact('kelas', 'user'));
     }
 
     public function ruang($id)
@@ -53,6 +56,7 @@ class pengumumanController extends Controller
     {
         Pengumuman::create([
             'kelas_id' => $request->kelas_id,
+            'ruang_id' => $request->ruang_id,
             'judul' => $request->judul,
             'keterangan' => $request->keterangan
         ]);
@@ -67,7 +71,8 @@ class pengumumanController extends Controller
      */
     public function show(Pengumuman $pengumuman)
     {
-        return view('admin.pengumuman.detail', compact('pengumuman'));
+        $user = Auth::user();
+        return view('admin.pengumuman.detail', compact('pengumuman', 'user'));
     }
 
     /**
@@ -78,8 +83,9 @@ class pengumumanController extends Controller
      */
     public function edit(Pengumuman $pengumuman)
     {
-        $kelas = Kelas::all();
-        return view('admin.pengumuman.edit', compact('pengumuman', 'kelas'));
+        $kelas = Kelas::pluck('kelas', 'id');
+        $user = Auth::user();
+        return view('admin.pengumuman.edit', compact('pengumuman', 'kelas', 'user'));
     }
 
     /**

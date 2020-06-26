@@ -1,4 +1,4 @@
-@extends('layout_admin.layout')
+@extends('layout_murid.layout')
 @section('content')
 <h2>Teman Kelas</h2>
 <hr>

@@ -14,6 +14,11 @@ class Kelas extends Model
         return $this->belongsTo('App\Pengumuman');
     }
 
+    public function jadwal()
+    {
+        return $this->belongsTo('App\Jadwal');
+    }
+
     public function ruang()
     {
         return $this->belongsTo('App\Ruang');

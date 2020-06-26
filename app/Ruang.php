@@ -14,6 +14,11 @@ class Ruang extends Model
         return $this->belongsTo('App\Kelas');
     }
 
+    public function jadwal()
+    {
+        return $this->belongsTo('App\Jadwal');
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');

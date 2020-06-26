@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class muridLoginController extends Controller
 {
@@ -16,6 +17,24 @@ class muridLoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function register(Request $request)
+    {
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ];
+
+        User::create($data);
+        return redirect('/murid/login');
+    }
+
+    public function getRegister()
+    {
+        return view('auth.murid.register');
     }
 
     public function login(Request $request)

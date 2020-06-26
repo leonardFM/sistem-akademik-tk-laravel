@@ -2,31 +2,51 @@
 @section('content')
 <div class="card col-md-8">
     <div class="card-body">
-        <form action="/pengumuman/create" method="post">
+        <form action="/jadwal/edit/{{ $jadwal->id }}" method="post">
+        @method('put')    
         @csrf    
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Kelas</label>
-                <select class="form-control" name="kelas_id">
-                    <option value="">- pilih -</option>
-                    @foreach ($kelas as $id => $kelas)
-                        <option value="{{ $id }}">{{ $kelas }}</option>
+                <select class="form-control" {{ $jadwal->id == $jadwal->kelas_id ? 'selected' : '' }} id="kelas" name="kelas_id">
+
+                    @foreach ($kelas as $id => $name)
+                        <option value="{{ $id }}">{{ $name }}</option>
                     @endforeach
+                
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Ruang</label>
                 <select class="form-control" id="ruang" name="ruang_id">
-                    <option value="">- pilih -</option>
+                    <option value="{{ $jadwal->ruang_id }}">{{ $jadwal->ruang["ruang"] }}</option>
                 </select>
             </div>
+
             <div class="form-group">
-                <label for="exampleInputEmail1">Judul</label>
-                <input type="text" name="judul" class="form-control">
+                <label for="exampleFormControlSelect1">Hari</label>
+                <select class="form-control" name="hari">
+                    <option value="{{ $jadwal->hari }}">{{$jadwal->hari}}</option>
+                    <option value="senin">senin</option>
+                    <option value="selasa">selasa</option>
+                    <option value="raabu">rabu</option>
+                </select>
             </div>
+
             <div class="form-group">
-                <label for="exampleInputEmail1">Keterangan</label>
-                <textarea name="keterangan" class="form-control" id="" cols="30" rows="10"></textarea>
-            </div>
+                <label>Multiple</label>
+                <div class="select2-primary">
+                    <select class="select2" name="kegiatan[]" multiple="multiple" data-dropdown-css-class="select2-primary" data-placeholder="Select a State" style="width: 100%;">
+
+                        @foreach ($kegiatan as $row)
+                            <option value="{{ $row->id }}" @foreach ($jadwal->kegiatan as $item) {{ $row->id == $item->id ? 'selected' : ''}}  @endforeach>
+                                {{ $row->kegiatan }}
+                            </option>
+                        @endforeach
+                        
+                    </select>
+                </div>
+              </div>
             
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -56,7 +76,8 @@
                     }
                 });
             });
-        </script>
+            </script>
     </div>
 </div>
+
 @endsection   

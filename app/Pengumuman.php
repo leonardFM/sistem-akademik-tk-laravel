@@ -13,4 +13,9 @@ class Pengumuman extends Model
     {
         return $this->belongsTo('App\Kelas');
     }
+
+    public function ruang()
+    {
+        return $this->belongsTo('App\Ruang');
+    }
 }

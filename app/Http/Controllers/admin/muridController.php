@@ -9,9 +9,13 @@ use App\Jeniskelamin;
 use App\Ruang;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class muridController extends Controller
 {
+    public function __construct()
+    {
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +24,9 @@ class muridController extends Controller
     public function index()
     {
         $kelas = Kelas::all();
-        $user = User::all();
-        return view('admin.murid.index', compact('kelas', 'user'));
+        $user = Auth::user();
+        $murid = User::all();
+        return view('admin.murid.index', compact('murid', 'kelas', 'user'));
     }
 
     /**

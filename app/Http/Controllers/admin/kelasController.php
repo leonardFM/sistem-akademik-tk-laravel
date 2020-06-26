@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Kelas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class kelasController extends Controller
 {
@@ -16,7 +17,8 @@ class kelasController extends Controller
     public function index()
     {
         $kelas = Kelas::all();
-        return view('admin.kelas.index', compact('kelas'));
+        $user = Auth::user();
+        return view('admin.kelas.index', compact('kelas', 'user'));
     }
 
     /**
@@ -26,7 +28,8 @@ class kelasController extends Controller
      */
     public function create()
     {
-        return view('admin.kelas.add');
+        $user = Auth::user();
+        return view('admin.kelas.add', compact('user'));
     }
 
     /**

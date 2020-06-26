@@ -24,6 +24,30 @@
             </div>
 
             <div class="form-group">
+                <label for="exampleFormControlSelect1">Hari</label>
+                <select class="form-control"  name="hari">
+                    <option value="">- pilih -</option>
+                    <option value="senin">senin</option>
+                    <option value="selasa">selasa</option>
+                    <option value="raabu">raabu</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Multiple</label>
+                <div class="select2-primary">
+                    <select class="select2" name="kegiatan[]" multiple="multiple" data-dropdown-css-class="select2-primary" data-placeholder="Select a State" style="width: 100%;">
+                        <option value="">- pilih -</option>
+
+                        @foreach ($kegiatan as $row)
+                            <option value="{{ $row->id }}">{{ $row->kegiatan }}</option>
+                        @endforeach
+                        
+                    </select>
+                </div>
+              </div>
+
+            <div class="form-group">
                 <label for="exampleInputEmail1">jadwal</label>
                 <input type="text" name="jadwal" class="form-control">
             </div>

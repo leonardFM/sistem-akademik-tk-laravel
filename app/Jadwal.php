@@ -6,6 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jadwal extends Model
 {
-    protected $fillable = ['kelas_id', 'ruang_id', 'jadwal'];
+    protected $guarded = ['id'];
     protected $table = 'tb_jadwal';
+
+    public function kelas()
+    {
+        return $this->belongsTo('App\Kelas');
+    }
+
+    public function ruang()
+    {
+        return $this->belongsTo('App\Ruang');
+    }
+
+    public function kegiatan()
+    {
+        return $this->belongsToMany('App\Kegiatan');
+    }
 }
