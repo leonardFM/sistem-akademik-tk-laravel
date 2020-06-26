@@ -40,6 +40,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="/murid/jadwal" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Jadwal</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="/profil" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>Profil</p>

@@ -48,6 +48,7 @@
           </div>
         </div>
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <a href="/murid/register" class="btn btn-success btn-block">Daftar</a>
       </form>
   
     </div>

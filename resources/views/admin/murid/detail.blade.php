@@ -19,6 +19,16 @@
                 <td><b>{{ $murid->agama["agama"] }}</b></td>
             </tr>
             <tr>
+                <td><b>Alamat</b></td>
+                <td>:</td>
+                <td><b>{{ $murid->alamat }}</b></td>
+            </tr>
+            <tr>
+                <td><b>No Telepon</b></td>
+                <td>:</td>
+                <td><b>{{ $murid->no_telepon }}</b></td>
+            </tr>
+            <tr>
                 <td><b>Jenis Kelamin</b></td>
                 <td>:</td>
                 <td><b>{{ $murid->jenis_kelamin["jenis_kelamin"] }}</b></td>

@@ -64,8 +64,9 @@ class muridController extends Controller
      */
     public function show($id)
     {
+        $user = Auth::user();
         $murid = User::findorfail($id);
-        return view('admin.murid.detail', compact('murid'));
+        return view('admin.murid.detail', compact('murid', 'user'));
     }
 
     /**
@@ -76,11 +77,12 @@ class muridController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
         $agama = Agama::pluck('agama', 'id');
         $murid = User::findorfail($id);
         $kelas = Kelas::pluck('kelas', 'id');
         $jenis_kelamin = Jeniskelamin::pluck('jenis_kelamin', 'id');
-        return view('admin.murid.edit', compact('kelas', 'jenis_kelamin', 'murid', 'agama'));
+        return view('admin.murid.edit', compact('kelas', 'jenis_kelamin', 'murid', 'agama', 'user'));
     }
 
     /**

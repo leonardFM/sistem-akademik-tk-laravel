@@ -1,6 +1,6 @@
 @extends('layout_murid.layout')
 @section('content')
-<div class="card col-md-8 text-center">
+<div class="card col-md-12 text-center">
     <div class="card-body">
         <h3>{{ $data->kelas->kelas }}</h3>
         <hr>

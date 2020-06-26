@@ -29,7 +29,8 @@
                     <option value="">- pilih -</option>
                     <option value="senin">senin</option>
                     <option value="selasa">selasa</option>
-                    <option value="raabu">raabu</option>
+                    <option value="rabu">rabu</option>
+                    <option value="kamis">kamis</option>
                 </select>
             </div>
 
