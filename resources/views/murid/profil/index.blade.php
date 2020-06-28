@@ -12,9 +12,7 @@
           <div class="card card-dark card-outline">
             <div class="card-body box-profile">
               <div class="text-center">
-                <img class="profile-user-img img-fluid img-circle"
-                     src="/assets/dist/img/user4-128x128.jpg"
-                     alt="User profile picture">
+                <img class=" img-fluid" style="height: 200px" width="170px" src="{{ $user->gambar }}" alt="User profile picture">   
               </div>
 
               <h3 class="profile-username text-center"></h3>
@@ -27,8 +25,14 @@
                 </li>
                 <li class="list-group-item">
                   <b>Ruang</b> <a class="float-right">{{ $user->ruang["ruang"] }}</a>
-                </li>
+                </li>  
               </ul>
+              <form action="" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('put')
+                <input type="file" name="gambar" hidden>
+                <Button type="submit" class="btn btn-primary btn-sm  btn-block">Ganti Profil</Button>
+              </form>
             </div>
             <!-- /.card-body -->
           </div>
@@ -44,6 +48,7 @@
                 <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Profil</a></li>
                 <li class="nav-item"><a class="nav-link" href="#teman" data-toggle="tab">Teman Kelas</a></li>
                 <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gambar" data-toggle="tab">Gambar Profil</a></li>
               </ul>
             </div><!-- /.card-header -->
             <div class="card-body">
@@ -171,6 +176,20 @@
                   </form>
                 </div>
                 <!-- /.tab-pane -->
+
+                <div class="tab-pane" id="gambar" >
+                  <form class="form-horizontal" action="/profil/gambar/{{ $user->id }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('put')
+                    <div class="custom-file">
+                      <input type="file" name="gambar" class="custom-file-input" id="validatedCustomFile" required>
+                      <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    </div>
+                    <button class="btn btn-primary mt-2">Ganti</button>
+                  </form>
+                </div>
+
+
               </div>
               <!-- /.tab-content -->
             </div><!-- /.card-body -->

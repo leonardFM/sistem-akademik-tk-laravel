@@ -9,6 +9,7 @@ use App\Jeniskelamin;
 use App\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class profilController extends Controller
 {
@@ -59,6 +60,21 @@ class profilController extends Controller
         ];
 
         User::where('id', $id)->update($data);
+        return redirect('/profil');
+    }
+
+    public function gambar(Request $request, $id)
+    {
+        $gambar = $request->file('gambar');
+        $new_gambar = time() . $gambar->getClientOriginalName();
+        $user = Auth::user();
+        $old_gambar = $user->gambar;
+
+
+        User::where('id', $id)->update(['gambar' => 'public/murid/profil/' . $new_gambar]);
+        $gambar->move('public/murid/profil/', $new_gambar);
+        File::delete($old_gambar);
+
         return redirect('/profil');
     }
 

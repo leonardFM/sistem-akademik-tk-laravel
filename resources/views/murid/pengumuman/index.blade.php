@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-body">
-        <table id="table_id" class="table table-striped table-bordered text-center">
+        <table id="" class="table table-striped table-bordered text-center">
             <thead>
                 <tr>
                     <th style="width: 20px">No</th>

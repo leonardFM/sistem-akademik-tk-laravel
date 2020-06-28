@@ -94,6 +94,7 @@ Route::get('/murid/pengumuman/detail/{id}', 'murid\pengumumanController@detail')
 Route::get('/profil', 'murid\profilController@index');
 Route::get('/profil/edit/{id}', 'murid\profilController@edit');
 Route::put('/profil/edit/{id}', 'murid\profilController@update');
+Route::put('/profil/gambar/{id}', 'murid\profilController@gambar');
 Route::get('/profil/teman_kelas', 'murid\profilController@teman_kelas');
 
 // jadwal murid

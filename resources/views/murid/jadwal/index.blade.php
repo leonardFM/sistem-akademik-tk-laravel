@@ -6,7 +6,6 @@
             <thead>
                 <tr>
                     <th style="width: 20px">No</th>
-                    <th>ruang</th>
                     <th>hari</th>
                     <th>kegiatan</th>
                     <th style="width: 100px">Action</th>
@@ -20,7 +19,6 @@
                 @foreach ($jadwal as $row)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $row->ruang->ruang }}</td>
                     <td>{{ $row->hari }}</td>
                     <td>
                         @foreach ($row->kegiatan as $kegiatan)
