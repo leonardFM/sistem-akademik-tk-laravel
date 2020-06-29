@@ -26,7 +26,7 @@
           <li class="nav-header">MENU</li>
 
           <li class="nav-item">
-            <a href="/murid/dashboard" class="nav-link">
+            <a href="/dashboard" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>Dashboard</p>
             </a>
@@ -34,7 +34,7 @@
 
           <li class="nav-item">
             <a href="/murid/pengumuman" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-bullhorn"></i>
               <p>Pengumuman</p>
             </a>
           </li>
@@ -50,6 +50,13 @@
             <a href="/profil" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>Profil</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/murid/ganti_password" class="nav-link">
+              <i class="nav-icon fas fa-key"></i>
+              <p>Ganti Password</p>
             </a>
           </li>
 

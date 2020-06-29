@@ -14,9 +14,7 @@
         <!-- /.card-header -->
         <div class="card-body box-profile">
             <div class="text-center">
-              <img class="profile-user-img img-fluid img-circle"
-                   src="/assets/dist/img/user4-128x128.jpg"
-                   alt="User profile picture">
+              <img class="img-fluid" style="height: 200px" width="170px" src="{{ $user->gambar }}" alt="User profile picture"> 
             </div>
 
             <h3 class="profile-username text-center">{{ $user->name }}</h3>

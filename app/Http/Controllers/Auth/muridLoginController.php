@@ -48,7 +48,7 @@ class muridLoginController extends Controller
             'password' => $request->input('password')
         ];
         if (auth()->attempt($data_login)) {
-            return redirect('/murid/dashboard');
+            return redirect('/dashboard');
         } else {
             return redirect('/murid/login');
         }

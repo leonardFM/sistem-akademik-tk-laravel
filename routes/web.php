@@ -20,7 +20,7 @@ Route::get('/frontend/login', 'frontendController@login')->name('frontend.login'
 
 
 //murid
-Route::get('/murid/dashboard', 'murid\muridController@dashboard');
+Route::get('/dashboard', 'murid\muridController@dashboard');
 
 Route::middleware('auth:admin')->group(function () {
 
@@ -88,6 +88,10 @@ Route::middleware('auth:admin')->group(function () {
 // pengumuman murid
 Route::get('/murid/pengumuman', 'murid\pengumumanController@index');
 Route::get('/murid/pengumuman/detail/{id}', 'murid\pengumumanController@detail');
+
+//ganti password murid
+Route::get('/murid/ganti_password', 'murid\gantiPasswordController@gantiPassword');
+Route::put('/murid/ganti_password/{id}', 'murid\gantiPasswordController@prosesGantiPassword');
 
 
 // profil murid
